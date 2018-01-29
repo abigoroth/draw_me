@@ -1,7 +1,8 @@
 require 'rails/railtie'
 require "draw_me/version"
 
-module DrawMe
+module DrawMe 
+  extend ActiveSupport::Concern
   
   def draw_me
     self_class = self.class.name.gsub("Rfq::", "")
@@ -31,27 +32,30 @@ module DrawMe
   end
 
   # ["#{Rails.root}/app/models", "#{Rails.root}/app/models/rfq"]
-  def self.draw_all
-    ["#{Rails.root}/app/models"].each do |path|
-      Dir.foreach(path) do |model_path|
-        namez = model_path.split("_").map{|x| x.capitalize}.join.gsub(".rb", "")
-        if (namez =~ /[a-zA-Z]/) != nil && (model_path =~ /.rb/) != nil
-          namez = "Rfq::" + namez if (path =~ /rfq/) != nil
-          puts namez
-          # Looking for model with AASM only
-          hm = "#{namez}.try(:aasm)"
-          puts hm
-          tmp = eval(hm)
-          if tmp
-            puts model_path
+  class_methods do 
+    def draw_all
+      ["#{Rails.root}/app/models"].each do |path|
+        Dir.foreach(path) do |model_path|
+          namez = model_path.split("_").map{|x| x.capitalize}.join.gsub(".rb", "")
+          if (namez =~ /[a-zA-Z]/) != nil && (model_path =~ /.rb/) != nil
+            namez = "Rfq::" + namez if (path =~ /rfq/) != nil
             puts namez
-            tmp = eval(namez)
-            tmp = tmp.new
-            tmp.draw_me
+            # Looking for model with AASM only
+            hm = "#{namez}.try(:aasm)"
+            puts hm
+            tmp = eval(hm)
+            if tmp
+              puts model_path
+              puts namez
+              tmp = eval(namez)
+              tmp = tmp.new
+              tmp.draw_me
+            end
           end
         end
       end
     end
   end
+
   # Your code goes here...
 end
