@@ -31,6 +31,7 @@ end
 ```
 
 2. Use it in your console.
+
     $ rails c
     2.4.0 :001 > to_draw = EmergencyPurchase.last
     2.4.0 :001 > to_draw.draw_me
