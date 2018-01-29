@@ -1,38 +1,37 @@
 # DrawMe
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/draw_me`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem is used to generate state diagram for [AASM gem](https://github.com/aasm/aasm). This gem utilize Matsuda's [stateful_enum gem](https://github.com/amatsuda/stateful_enum) graph generator to generate AASM state diagram.
 
 ## Installation
+1. Create a `doc` folder in your app root directory.
 
-Add this line to your application's Gemfile:
+2. Add this line to your application's Gemfile:
 
 ```ruby
+gem 'aasm'
+gem 'stateful_enum'
 gem 'draw_me'
 ```
 
-And then execute:
+3. And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install draw_me
 
 ## Usage
 
-TODO: Write usage instructions here
+    $ rails c
+    2.4.0 :001 > to_draw = EmergencyPurchase.last
+    2.4.0 :001 > to_draw.draw_me
+    emergencypurchase_graph
+    => 1
 
-## Development
+You should be able to find your graph in the doc folder in your root directory.
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/draw_me. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/abigoroth/draw_me. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
