@@ -28,6 +28,8 @@ gem 'draw_me'
 
 You should be able to find your graph in the doc folder in your root directory.
 
+![Screenshot](output.png)
+
 
 ## Contributing
 
