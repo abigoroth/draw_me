@@ -3,6 +3,8 @@
 This gem is used to generate state diagram for [AASM gem](https://github.com/aasm/aasm). This gem utilize Matsuda's [stateful_enum gem](https://github.com/amatsuda/stateful_enum) graph generator to generate AASM state diagram.
 
 ## Installation
+Before we start with DrawMe gem there are dependencies for [AASM gem](https://github.com/aasm/aasm) such as graphiz installation and other stuff are need to be done beforehand. Please head to [AASM gem](https://github.com/aasm/aasm) page for more info about the setup.
+
 1. Create a `doc` folder in your app root directory.
 
 2. Add this line to your application's Gemfile:
