@@ -38,6 +38,7 @@ end
     => 1
 
 if you want to draw all diagram for all of your models :
+
     2.4.0 :001 > ApplicationRecord.draw_all
 
 You should be able to find your graph in the doc folder in your root directory.
